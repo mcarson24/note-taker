@@ -1,19 +1,19 @@
-const express = require('express')
 const fs = require('fs')
 const path = require('path')
 const short = require('short-uuid')
 
-const router = express.Router()
+
 const dbPath = path.join(__dirname, '../db/db.json')
 
-router.get('/notes', (req, res) => {
+
+const index = (req, res) => {
   fs.readFile(dbPath, { encoding: 'utf-8'}, (err, data) => {
     if (!err) res.json(JSON.parse(data))
     else console.error(err)
   })
-})
+}
 
-router.post('/notes', (req, res) => {
+const create = (req, res) => {
   const { title, text } = req.body
   fs.readFile(dbPath, { encoding: 'utf-8' }, (err, data) => {
     if (!err) {
@@ -35,9 +35,9 @@ router.post('/notes', (req, res) => {
       }
     } else console.error(err)
   })
-})
+}
 
-router.delete('/notes/:uuid', (req, res) => {
+const destroy = (req, res) => {
   const uuid = req.params.uuid
   fs.readFile(dbPath, { encoding: 'utf-8' }, (err, data) => {
     if (!err) {
@@ -49,6 +49,6 @@ router.delete('/notes/:uuid', (req, res) => {
       res.json(notes)
     } else console.error(err)
   })
-})
+}
 
-module.exports = router
+module.exports = { index, create, destroy }

@@ -504,6 +504,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 6rem;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .w-6 {
   width: 1.5rem;
 }
@@ -522,6 +526,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-col {
   flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
@@ -575,6 +583,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: center;
 }
 
+.align-middle {
+  vertical-align: middle;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -593,6 +605,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-blue-400 {
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
 .placeholder\:text-5xl::-moz-placeholder {

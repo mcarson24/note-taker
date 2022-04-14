@@ -37,4 +37,18 @@ router.post('/notes', (req, res) => {
   })
 })
 
+router.delete('/notes/:uuid', (req, res) => {
+  const uuid = req.params.uuid
+  fs.readFile(dbPath, { encoding: 'utf-8' }, (err, data) => {
+    if (!err) {
+      let notes = JSON.parse(data)
+      notes = notes.filter(note => {
+        if (note.uuid !== uuid) return note
+      })
+      fs.writeFile(dbPath, JSON.stringify(notes), err => console.error(err))
+      res.json(notes)
+    } else console.error(err)
+  })
+})
+
 module.exports = router

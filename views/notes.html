@@ -33,8 +33,12 @@
         <article class="w-2/3 px-4">
           <form action="/api/notes" method="POST" id="new-note-form" class="flex flex-col">
             <input type="text" name="title" class="h-24 placeholder:text-gray-700 placeholder:text-5xl text-5xl" placeholder="Note Title">
-            <textarea name="text" id="" cols="30" rows="10">Note Text</textarea>
+            <textarea name="text" id="" cols="30" rows="10" placeholder="Note Text"></textarea>
           </form>
+          <div id="note">
+            <h1 id="note-title" class="h-24 text-5xl"></h1>
+            <p id="note-text"></p>
+          </div>
         </article>
       </section>
     </main>

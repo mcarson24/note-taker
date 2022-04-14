@@ -654,3 +654,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
+
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
+}

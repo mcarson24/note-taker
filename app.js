@@ -3,7 +3,7 @@ const api = require('./routes/api')
 const static = require('./routes/static')
 
 const app = express()
-const PORT = process.ENV || 3000
+const PORT = process.env.PORT || 3000
 
 app.use(express.static('public'))
 app.use(express.json())

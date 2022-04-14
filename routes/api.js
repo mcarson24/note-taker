@@ -1,10 +1,9 @@
-const { response } = require('express')
 const express = require('express')
 const fs = require('fs')
 const path = require('path')
+const short = require('short-uuid')
 
 const router = express.Router()
-
 const dbPath = path.join(__dirname, '../db/db.json')
 
 router.get('/notes', (req, res) => {
@@ -25,7 +24,11 @@ router.post('/notes', (req, res) => {
         })
       } else {
         const notes = JSON.parse(data)
-        const newNote = { title, text }
+        const newNote = { 
+          uuid: short.generate(),
+          title, 
+          text 
+        }
         notes.push(newNote)
         fs.writeFile(dbPath, JSON.stringify(notes), err => console.error(err))
         res.status(201).json(newNote)

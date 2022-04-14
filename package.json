@@ -28,7 +28,8 @@
   "dependencies": {
     "axios": "^0.26.1",
     "express": "^4.17.3",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "short-uuid": "^4.2.0"
   },
   "devDependencies": {
     "tailwindcss": "^3.0.24",

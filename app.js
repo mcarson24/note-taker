@@ -6,8 +6,8 @@ const app = express()
 const PORT = process.ENV || 3000
 
 app.use(express.static('public'))
-app.use(express.urlencoded({ extended: true }))
-// app.get('/', (req, res) => res.sendFile(__dirname + '/views/index.html'))
+app.use(express.json())
+
 app.use('/api', api)
 app.use(static)
 

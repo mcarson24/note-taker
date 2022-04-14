@@ -16,7 +16,6 @@ router.get('/notes', (req, res) => {
 
 router.post('/notes', (req, res) => {
   const { title, text } = req.body
-  console.log(title, text)
   fs.readFile(dbPath, { encoding: 'utf-8' }, (err, data) => {
     if (!err) {
       if (!title.trim().length || !text.trim().length) {
@@ -26,9 +25,10 @@ router.post('/notes', (req, res) => {
         })
       } else {
         const notes = JSON.parse(data)
-        notes.push({ title, text })
+        const newNote = { title, text }
+        notes.push(newNote)
         fs.writeFile(dbPath, JSON.stringify(notes), err => console.error(err))
-        res.redirect('/notes')
+        res.status(201).json(newNote)
       }
     } else console.error(err)
   })

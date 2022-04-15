@@ -2,9 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const short = require('short-uuid')
 
-
 const dbPath = path.join(__dirname, '../db/db.json')
-
 
 const index = (req, res) => {
   fs.readFile(dbPath, { encoding: 'utf-8'}, (err, data) => {

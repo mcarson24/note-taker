@@ -29,7 +29,7 @@ const create = (req, res) => {
         }
         notes.push(newNote)
         fs.writeFile(dbPath, JSON.stringify(notes), err => console.error(err))
-        res.status(201).json(newNote)
+        return res.status(201).json(newNote)
       }
     } else console.error(err)
   })
@@ -44,7 +44,7 @@ const destroy = (req, res) => {
         if (note.uuid !== uuid) return note
       })
       fs.writeFile(dbPath, JSON.stringify(notes), err => console.error(err))
-      res.json(notes)
+      return res.json(notes)
     } else console.error(err)
   })
 }
